@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="gaieModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cidade">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="estado" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="dadosEstado" Relationship="Self.fk_estado_cidade" FromRole="ieadi_cidade" ToRole="ieadi_estado" />
+    <NavigationProperty Name="listaBairros" Relationship="gaieModel.fk_cidade_bairro" FromRole="ieadi_cidade" ToRole="ieadi_bairro" />
+  </EntityType>
+  <EntityType Name="Estado">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sigla" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="pais" Type="Byte" Nullable="false" />
+    <NavigationProperty Name="listaCidades" Relationship="Self.fk_estado_cidade" FromRole="ieadi_estado" ToRole="ieadi_cidade" />
+    <NavigationProperty Name="dadosPais" Relationship="Self.fk_pais_estado" FromRole="ieadi_estado" ToRole="ieadi_pais" />
+  </EntityType>
+  <EntityType Name="Pais">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sigla" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="listaEstados" Relationship="Self.fk_pais_estado" FromRole="ieadi_pais" ToRole="ieadi_estado" />
+  </EntityType>
+  <Association Name="fk_estado_cidade">
+    <End Role="ieadi_estado" Type="gaieModel.Estado" Multiplicity="1" />
+    <End Role="ieadi_cidade" Type="gaieModel.Cidade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ieadi_estado">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ieadi_cidade">
+        <PropertyRef Name="estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_pais_estado">
+    <End Role="ieadi_pais" Type="gaieModel.Pais" Multiplicity="1" />
+    <End Role="ieadi_estado" Type="gaieModel.Estado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ieadi_pais">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ieadi_estado">
+        <PropertyRef Name="pais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="gaieEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cidades" EntityType="gaieModel.Cidade" />
+    <EntitySet Name="Estados" EntityType="gaieModel.Estado" />
+    <EntitySet Name="Paises" EntityType="gaieModel.Pais" />
+    <AssociationSet Name="fk_estado_cidade" Association="Self.fk_estado_cidade">
+      <End Role="ieadi_estado" EntitySet="Estados" />
+      <End Role="ieadi_cidade" EntitySet="Cidades" />
+    </AssociationSet>
+    <AssociationSet Name="fk_pais_estado" Association="Self.fk_pais_estado">
+      <End Role="ieadi_pais" EntitySet="Paises" />
+      <End Role="ieadi_estado" EntitySet="Estados" />
+    </AssociationSet>
+    <EntitySet Name="Bairros" EntityType="gaieModel.Bairro" />
+    <EntitySet Name="Congregacoes" EntityType="gaieModel.Congregacao" />
+    <EntitySet Name="FotosCongregacao" EntityType="gaieModel.FotoCongregacao" />
+    <AssociationSet Name="FK_bairro_congregacao" Association="gaieModel.FK_bairro_congregacao">
+      <End Role="ieadi_bairro" EntitySet="Bairros" />
+      <End Role="ieadi_congregacao" EntitySet="Congregacoes" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cidade_bairro" Association="gaieModel.fk_cidade_bairro">
+      <End Role="ieadi_cidade" EntitySet="Cidades" />
+      <End Role="ieadi_bairro" EntitySet="Bairros" />
+    </AssociationSet>
+    <AssociationSet Name="FK_congregacao_foto" Association="gaieModel.FK_congregacao_foto">
+      <End Role="ieadi_congregacao" EntitySet="Congregacoes" />
+      <End Role="ieadi_foto_congregacao" EntitySet="FotosCongregacao" />
+    </AssociationSet>
+    <EntitySet Name="Membros" EntityType="gaieModel.Membro" />
+    <AssociationSet Name="FK_dirigente_congregacao" Association="gaieModel.FK_dirigente_congregacao">
+      <End Role="Membros" EntitySet="Membros" />
+      <End Role="ieadi_congregacao" EntitySet="Congregacoes" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Bairro">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="cidade" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="listaCongregacoes" Relationship="gaieModel.FK_bairro_congregacao" FromRole="ieadi_bairro" ToRole="ieadi_congregacao" />
+    <NavigationProperty Name="dadosCidade" Relationship="gaieModel.fk_cidade_bairro" FromRole="ieadi_bairro" ToRole="ieadi_cidade" />
+  </EntityType>
+  <EntityType Name="Congregacao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="dirigente" Type="Double" Nullable="false" />
+    <Property Name="logradouro" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="numero" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="complemento" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="bairro" Type="Int32" Nullable="false" />
+    <Property Name="telefone" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="dadosBairro" Relationship="gaieModel.FK_bairro_congregacao" FromRole="ieadi_congregacao" ToRole="ieadi_bairro" />
+    <NavigationProperty Name="listaFotos" Relationship="gaieModel.FK_congregacao_foto" FromRole="ieadi_congregacao" ToRole="ieadi_foto_congregacao" />
+    <NavigationProperty Name="dadosDirigente" Relationship="gaieModel.FK_dirigente_congregacao" FromRole="ieadi_congregacao" ToRole="Membros" />
+  </EntityType>
+  <EntityType Name="FotoCongregacao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="congregacao" Type="Int32" Nullable="false" />
+    <Property Name="foto" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="dadosCongregacao" Relationship="gaieModel.FK_congregacao_foto" FromRole="ieadi_foto_congregacao" ToRole="ieadi_congregacao" />
+  </EntityType>
+  <Association Name="FK_bairro_congregacao">
+    <End Type="gaieModel.Bairro" Role="ieadi_bairro" Multiplicity="1" />
+    <End Type="gaieModel.Congregacao" Role="ieadi_congregacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ieadi_bairro">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ieadi_congregacao">
+        <PropertyRef Name="bairro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cidade_bairro">
+    <End Type="gaieModel.Cidade" Role="ieadi_cidade" Multiplicity="1" />
+    <End Type="gaieModel.Bairro" Role="ieadi_bairro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ieadi_cidade">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ieadi_bairro">
+        <PropertyRef Name="cidade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_congregacao_foto">
+    <End Type="gaieModel.Congregacao" Role="ieadi_congregacao" Multiplicity="1" />
+    <End Type="gaieModel.FotoCongregacao" Role="ieadi_foto_congregacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ieadi_congregacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ieadi_foto_congregacao">
+        <PropertyRef Name="congregacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Membro">
+    <Key>
+      <PropertyRef Name="CODIRM07" />
+    </Key>
+    <Property Name="CODIRM07" Type="Double" Nullable="false" />
+    <Property Name="NOMIRM07" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="CODFIL07" Type="Double" />
+    <Property Name="ADMCON07" Type="DateTime" Precision="3" />
+    <Property Name="NOMPAI07" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="NOMMAE07" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="DATNAS07" Type="DateTime" Precision="3" />
+    <Property Name="ESTCIV07" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CONJUG07" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="CPFIRM07" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="RG_IRM07" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="EXPERG07" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="DATEXP07" Type="DateTime" Precision="3" />
+    <Property Name="OUTDOC07" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="CODNAT07" Type="Double" />
+    <Property Name="NACION07" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="CODCEP07" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="CODLOG07" Type="Double" />
+    <Property Name="NUMERO07" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="CODBAI07" Type="Double" />
+    <Property Name="COMPLE07" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CODCID07" Type="Double" />
+    <Property Name="TELRES07" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="TELCEL07" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="PROFIS07" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="LOCTRA07" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="CEPTRA07" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="LOGTRA07" Type="Double" />
+    <Property Name="NUMTRA07" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="BAITRA07" Type="Double" />
+    <Property Name="COMTRA07" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CIDTRA07" Type="Double" />
+    <Property Name="TELTRA07" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="FAXTRA07" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+    <Property Name="BATESP07" Type="DateTime" Precision="3" />
+    <Property Name="DATBAT07" Type="DateTime" Precision="3" />
+    <Property Name="IGREBA07" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="CIDBAT07" Type="Double" />
+    <Property Name="ADMMEM07" Type="DateTime" Precision="3" />
+    <Property Name="ADMPOR07" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="CODFUN07" Type="Double" />
+    <Property Name="ESPORT07" Type="Double" />
+    <Property Name="FILBAT07" Type="Double" />
+    <Property Name="DATCAD07" Type="DateTime" Precision="3" />
+    <Property Name="SITMEM07" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="VALAUX07" Type="Double" />
+    <NavigationProperty Name="listaCongregacoes" Relationship="gaieModel.FK_dirigente_congregacao" FromRole="Membros" ToRole="ieadi_congregacao" />
+  </EntityType>
+  <Association Name="FK_dirigente_congregacao">
+    <End Type="gaieModel.Membro" Role="Membros" Multiplicity="1" />
+    <End Type="gaieModel.Congregacao" Role="ieadi_congregacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Membros">
+        <PropertyRef Name="CODIRM07" />
+      </Principal>
+      <Dependent Role="ieadi_congregacao">
+        <PropertyRef Name="dirigente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

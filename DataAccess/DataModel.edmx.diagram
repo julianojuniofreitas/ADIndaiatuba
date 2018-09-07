@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d15f84a25ef3496cbb2ff6c86cb3f474" Name="Diagram1" ZoomLevel="101">
+        <EntityTypeShape EntityType="gaieModel.Cidade" Width="1.5" PointX="3.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="gaieModel.Estado" Width="1.5" PointX="1" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="gaieModel.Pais" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="gaieModel.fk_estado_cidade" ManuallyRouted="false" />
+        <AssociationConnector Association="gaieModel.fk_pais_estado" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="gaieModel.Bairro" Width="1.5" PointX="3.75" PointY="1.125" />
+        <EntityTypeShape EntityType="gaieModel.Congregacao" Width="1.5" PointX="7" PointY="1" />
+        <EntityTypeShape EntityType="gaieModel.FotoCongregacao" Width="1.5" PointX="7.125" PointY="4.875" />
+        <AssociationConnector Association="gaieModel.FK_bairro_congregacao" />
+        <AssociationConnector Association="gaieModel.fk_cidade_bairro" />
+        <AssociationConnector Association="gaieModel.FK_congregacao_foto" />
+        <EntityTypeShape EntityType="gaieModel.Membro" Width="1.5" PointX="9.875" PointY="1" />
+        <AssociationConnector Association="gaieModel.FK_dirigente_congregacao" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

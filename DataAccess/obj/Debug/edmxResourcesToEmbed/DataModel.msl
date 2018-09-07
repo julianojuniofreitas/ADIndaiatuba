@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="gaieModelStoreContainer" CdmEntityContainer="gaieEntities">
+    <EntitySetMapping Name="Cidades">
+      <EntityTypeMapping TypeName="gaieModel.Cidade">
+        <MappingFragment StoreEntitySet="ieadi_cidade">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estados">
+      <EntityTypeMapping TypeName="gaieModel.Estado">
+        <MappingFragment StoreEntitySet="ieadi_estado">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="sigla" ColumnName="sigla" />
+          <ScalarProperty Name="pais" ColumnName="pais" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Paises">
+      <EntityTypeMapping TypeName="gaieModel.Pais">
+        <MappingFragment StoreEntitySet="ieadi_pais">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="sigla" ColumnName="sigla" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bairros">
+      <EntityTypeMapping TypeName="gaieModel.Bairro">
+        <MappingFragment StoreEntitySet="ieadi_bairro">
+          <ScalarProperty Name="cidade" ColumnName="cidade" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Congregacoes">
+      <EntityTypeMapping TypeName="gaieModel.Congregacao">
+        <MappingFragment StoreEntitySet="ieadi_congregacao">
+          <ScalarProperty Name="telefone" ColumnName="telefone" />
+          <ScalarProperty Name="bairro" ColumnName="bairro" />
+          <ScalarProperty Name="complemento" ColumnName="complemento" />
+          <ScalarProperty Name="numero" ColumnName="numero" />
+          <ScalarProperty Name="logradouro" ColumnName="logradouro" />
+          <ScalarProperty Name="dirigente" ColumnName="dirigente" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FotosCongregacao">
+      <EntityTypeMapping TypeName="gaieModel.FotoCongregacao">
+        <MappingFragment StoreEntitySet="ieadi_foto_congregacao">
+          <ScalarProperty Name="foto" ColumnName="foto" />
+          <ScalarProperty Name="congregacao" ColumnName="congregacao" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Membros">
+      <EntityTypeMapping TypeName="gaieModel.Membro">
+        <MappingFragment StoreEntitySet="Membros">
+          <ScalarProperty Name="VALAUX07" ColumnName="VALAUX07" />
+          <ScalarProperty Name="SITMEM07" ColumnName="SITMEM07" />
+          <ScalarProperty Name="DATCAD07" ColumnName="DATCAD07" />
+          <ScalarProperty Name="FILBAT07" ColumnName="FILBAT07" />
+          <ScalarProperty Name="ESPORT07" ColumnName="ESPORT07" />
+          <ScalarProperty Name="CODFUN07" ColumnName="CODFUN07" />
+          <ScalarProperty Name="ADMPOR07" ColumnName="ADMPOR07" />
+          <ScalarProperty Name="ADMMEM07" ColumnName="ADMMEM07" />
+          <ScalarProperty Name="CIDBAT07" ColumnName="CIDBAT07" />
+          <ScalarProperty Name="IGREBA07" ColumnName="IGREBA07" />
+          <ScalarProperty Name="DATBAT07" ColumnName="DATBAT07" />
+          <ScalarProperty Name="BATESP07" ColumnName="BATESP07" />
+          <ScalarProperty Name="FAXTRA07" ColumnName="FAXTRA07" />
+          <ScalarProperty Name="TELTRA07" ColumnName="TELTRA07" />
+          <ScalarProperty Name="CIDTRA07" ColumnName="CIDTRA07" />
+          <ScalarProperty Name="COMTRA07" ColumnName="COMTRA07" />
+          <ScalarProperty Name="BAITRA07" ColumnName="BAITRA07" />
+          <ScalarProperty Name="NUMTRA07" ColumnName="NUMTRA07" />
+          <ScalarProperty Name="LOGTRA07" ColumnName="LOGTRA07" />
+          <ScalarProperty Name="CEPTRA07" ColumnName="CEPTRA07" />
+          <ScalarProperty Name="LOCTRA07" ColumnName="LOCTRA07" />
+          <ScalarProperty Name="PROFIS07" ColumnName="PROFIS07" />
+          <ScalarProperty Name="TELCEL07" ColumnName="TELCEL07" />
+          <ScalarProperty Name="TELRES07" ColumnName="TELRES07" />
+          <ScalarProperty Name="CODCID07" ColumnName="CODCID07" />
+          <ScalarProperty Name="COMPLE07" ColumnName="COMPLE07" />
+          <ScalarProperty Name="CODBAI07" ColumnName="CODBAI07" />
+          <ScalarProperty Name="NUMERO07" ColumnName="NUMERO07" />
+          <ScalarProperty Name="CODLOG07" ColumnName="CODLOG07" />
+          <ScalarProperty Name="CODCEP07" ColumnName="CODCEP07" />
+          <ScalarProperty Name="NACION07" ColumnName="NACION07" />
+          <ScalarProperty Name="CODNAT07" ColumnName="CODNAT07" />
+          <ScalarProperty Name="OUTDOC07" ColumnName="OUTDOC07" />
+          <ScalarProperty Name="DATEXP07" ColumnName="DATEXP07" />
+          <ScalarProperty Name="EXPERG07" ColumnName="EXPERG07" />
+          <ScalarProperty Name="RG_IRM07" ColumnName="RG_IRM07" />
+          <ScalarProperty Name="CPFIRM07" ColumnName="CPFIRM07" />
+          <ScalarProperty Name="CONJUG07" ColumnName="CONJUG07" />
+          <ScalarProperty Name="ESTCIV07" ColumnName="ESTCIV07" />
+          <ScalarProperty Name="DATNAS07" ColumnName="DATNAS07" />
+          <ScalarProperty Name="NOMMAE07" ColumnName="NOMMAE07" />
+          <ScalarProperty Name="NOMPAI07" ColumnName="NOMPAI07" />
+          <ScalarProperty Name="ADMCON07" ColumnName="ADMCON07" />
+          <ScalarProperty Name="CODFIL07" ColumnName="CODFIL07" />
+          <ScalarProperty Name="NOMIRM07" ColumnName="NOMIRM07" />
+          <ScalarProperty Name="CODIRM07" ColumnName="CODIRM07" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

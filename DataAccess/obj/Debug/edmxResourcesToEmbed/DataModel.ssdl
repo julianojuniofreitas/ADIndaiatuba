@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="gaieModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ieadi_bairro">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="cidade" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ieadi_cidade">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="estado" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ieadi_congregacao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="dirigente" Type="float" Nullable="false" />
+    <Property Name="logradouro" Type="nvarchar" MaxLength="100" />
+    <Property Name="numero" Type="nvarchar" MaxLength="10" />
+    <Property Name="complemento" Type="nvarchar" MaxLength="30" />
+    <Property Name="bairro" Type="int" Nullable="false" />
+    <Property Name="telefone" Type="char" MaxLength="11" />
+  </EntityType>
+  <EntityType Name="ieadi_estado">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="sigla" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="pais" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ieadi_foto_congregacao">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="congregacao" Type="int" Nullable="false" />
+    <Property Name="foto" Type="image" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ieadi_pais">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="sigla" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Membros">
+    <Key>
+      <PropertyRef Name="CODIRM07" />
+    </Key>
+    <Property Name="CODIRM07" Type="float" Nullable="false" />
+    <Property Name="NOMIRM07" Type="varchar" MaxLength="40" />
+    <Property Name="CODFIL07" Type="float" />
+    <Property Name="ADMCON07" Type="datetime" />
+    <Property Name="NOMPAI07" Type="varchar" MaxLength="40" />
+    <Property Name="NOMMAE07" Type="varchar" MaxLength="40" />
+    <Property Name="DATNAS07" Type="datetime" />
+    <Property Name="ESTCIV07" Type="varchar" MaxLength="10" />
+    <Property Name="CONJUG07" Type="varchar" MaxLength="40" />
+    <Property Name="CPFIRM07" Type="varchar" MaxLength="11" />
+    <Property Name="RG_IRM07" Type="varchar" MaxLength="40" />
+    <Property Name="EXPERG07" Type="varchar" MaxLength="6" />
+    <Property Name="DATEXP07" Type="datetime" />
+    <Property Name="OUTDOC07" Type="varchar" MaxLength="40" />
+    <Property Name="CODNAT07" Type="float" />
+    <Property Name="NACION07" Type="varchar" MaxLength="30" />
+    <Property Name="CODCEP07" Type="varchar" MaxLength="8" />
+    <Property Name="CODLOG07" Type="float" />
+    <Property Name="NUMERO07" Type="varchar" MaxLength="5" />
+    <Property Name="CODBAI07" Type="float" />
+    <Property Name="COMPLE07" Type="varchar" MaxLength="10" />
+    <Property Name="CODCID07" Type="float" />
+    <Property Name="TELRES07" Type="varchar" MaxLength="12" />
+    <Property Name="TELCEL07" Type="varchar" MaxLength="12" />
+    <Property Name="PROFIS07" Type="varchar" MaxLength="40" />
+    <Property Name="LOCTRA07" Type="varchar" MaxLength="40" />
+    <Property Name="CEPTRA07" Type="varchar" MaxLength="8" />
+    <Property Name="LOGTRA07" Type="float" />
+    <Property Name="NUMTRA07" Type="varchar" MaxLength="5" />
+    <Property Name="BAITRA07" Type="float" />
+    <Property Name="COMTRA07" Type="varchar" MaxLength="10" />
+    <Property Name="CIDTRA07" Type="float" />
+    <Property Name="TELTRA07" Type="varchar" MaxLength="12" />
+    <Property Name="FAXTRA07" Type="varchar" MaxLength="12" />
+    <Property Name="BATESP07" Type="datetime" />
+    <Property Name="DATBAT07" Type="datetime" />
+    <Property Name="IGREBA07" Type="varchar" MaxLength="40" />
+    <Property Name="CIDBAT07" Type="float" />
+    <Property Name="ADMMEM07" Type="datetime" />
+    <Property Name="ADMPOR07" Type="varchar" MaxLength="1" />
+    <Property Name="CODFUN07" Type="float" />
+    <Property Name="ESPORT07" Type="float" />
+    <Property Name="FILBAT07" Type="float" />
+    <Property Name="DATCAD07" Type="datetime" />
+    <Property Name="SITMEM07" Type="varchar" MaxLength="1" />
+    <Property Name="VALAUX07" Type="float" />
+  </EntityType>
+  <Association Name="FK_bairro_congregacao">
+    <End Role="ieadi_bairro" Type="Self.ieadi_bairro" Multiplicity="1" />
+    <End Role="ieadi_congregacao" Type="Self.ieadi_congregacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ieadi_bairro">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ieadi_congregacao">
+        <PropertyRef Name="bairro" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_cidade_bairro">
+    <End Role="ieadi_cidade" Type="Self.ieadi_cidade" Multiplicity="1" />
+    <End Role="ieadi_bairro" Type="Self.ieadi_bairro" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ieadi_cidade">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ieadi_bairro">
+        <PropertyRef Name="cidade" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_congregacao_foto">
+    <End Role="ieadi_congregacao" Type="Self.ieadi_congregacao" Multiplicity="1" />
+    <End Role="ieadi_foto_congregacao" Type="Self.ieadi_foto_congregacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ieadi_congregacao">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ieadi_foto_congregacao">
+        <PropertyRef Name="congregacao" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dirigente_congregacao">
+    <End Role="Membros" Type="Self.Membros" Multiplicity="1" />
+    <End Role="ieadi_congregacao" Type="Self.ieadi_congregacao" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Membros">
+        <PropertyRef Name="CODIRM07" />
+      </Principal>
+      <Dependent Role="ieadi_congregacao">
+        <PropertyRef Name="dirigente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_estado_cidade">
+    <End Role="ieadi_estado" Type="Self.ieadi_estado" Multiplicity="1" />
+    <End Role="ieadi_cidade" Type="Self.ieadi_cidade" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ieadi_estado">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ieadi_cidade">
+        <PropertyRef Name="estado" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_pais_estado">
+    <End Role="ieadi_pais" Type="Self.ieadi_pais" Multiplicity="1" />
+    <End Role="ieadi_estado" Type="Self.ieadi_estado" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ieadi_pais">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="ieadi_estado">
+        <PropertyRef Name="pais" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="gaieModelStoreContainer">
+    <EntitySet Name="ieadi_bairro" EntityType="Self.ieadi_bairro" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ieadi_cidade" EntityType="Self.ieadi_cidade" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ieadi_congregacao" EntityType="Self.ieadi_congregacao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ieadi_estado" EntityType="Self.ieadi_estado" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ieadi_foto_congregacao" EntityType="Self.ieadi_foto_congregacao" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ieadi_pais" EntityType="Self.ieadi_pais" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Membros" EntityType="Self.Membros" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_bairro_congregacao" Association="Self.FK_bairro_congregacao">
+      <End Role="ieadi_bairro" EntitySet="ieadi_bairro" />
+      <End Role="ieadi_congregacao" EntitySet="ieadi_congregacao" />
+    </AssociationSet>
+    <AssociationSet Name="fk_cidade_bairro" Association="Self.fk_cidade_bairro">
+      <End Role="ieadi_cidade" EntitySet="ieadi_cidade" />
+      <End Role="ieadi_bairro" EntitySet="ieadi_bairro" />
+    </AssociationSet>
+    <AssociationSet Name="FK_congregacao_foto" Association="Self.FK_congregacao_foto">
+      <End Role="ieadi_congregacao" EntitySet="ieadi_congregacao" />
+      <End Role="ieadi_foto_congregacao" EntitySet="ieadi_foto_congregacao" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dirigente_congregacao" Association="Self.FK_dirigente_congregacao">
+      <End Role="Membros" EntitySet="Membros" />
+      <End Role="ieadi_congregacao" EntitySet="ieadi_congregacao" />
+    </AssociationSet>
+    <AssociationSet Name="fk_estado_cidade" Association="Self.fk_estado_cidade">
+      <End Role="ieadi_estado" EntitySet="ieadi_estado" />
+      <End Role="ieadi_cidade" EntitySet="ieadi_cidade" />
+    </AssociationSet>
+    <AssociationSet Name="fk_pais_estado" Association="Self.fk_pais_estado">
+      <End Role="ieadi_pais" EntitySet="ieadi_pais" />
+      <End Role="ieadi_estado" EntitySet="ieadi_estado" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

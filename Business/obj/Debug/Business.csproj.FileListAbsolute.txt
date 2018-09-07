@@ -1,0 +1,12 @@
+D:\Juliano\Desenvolvimento\ADIndaiatuba\Business\bin\Debug\Business.dll
+D:\Juliano\Desenvolvimento\ADIndaiatuba\Business\bin\Debug\Business.pdb
+D:\Juliano\Desenvolvimento\ADIndaiatuba\Business\obj\Debug\Business.csprojAssemblyReference.cache
+D:\Juliano\Desenvolvimento\ADIndaiatuba\Business\obj\Debug\Business.csproj.CoreCompileInputs.cache
+D:\Juliano\Desenvolvimento\ADIndaiatuba\Business\obj\Debug\Business.dll
+D:\Juliano\Desenvolvimento\ADIndaiatuba\Business\obj\Debug\Business.pdb
+D:\Juliano\Desenvolvimento\ADIndaiatuba\Business\bin\Debug\DataAccess.dll
+D:\Juliano\Desenvolvimento\ADIndaiatuba\Business\bin\Debug\EntityFramework.dll
+D:\Juliano\Desenvolvimento\ADIndaiatuba\Business\bin\Debug\DataAccess.pdb
+D:\Juliano\Desenvolvimento\ADIndaiatuba\Business\bin\Debug\DataAccess.dll.config
+D:\Juliano\Desenvolvimento\ADIndaiatuba\Business\bin\Debug\EntityFramework.xml
+D:\Juliano\Desenvolvimento\ADIndaiatuba\Business\obj\Debug\Business.csproj.CopyComplete
