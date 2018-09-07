@@ -21,7 +21,7 @@ namespace DesktopApp
 
         private void ShowNewForm(object sender, EventArgs e)
         {
-            FormCongregacao childForm = new FormCongregacao();
+            FormPesquisaCongregacao childForm = new FormPesquisaCongregacao();
             childForm.MdiParent = this;
             childForm.Text = "Window " + childFormNumber++;
             childForm.Show();

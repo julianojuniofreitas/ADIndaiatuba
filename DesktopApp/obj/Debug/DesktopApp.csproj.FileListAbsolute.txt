@@ -7,7 +7,6 @@ D:\Juliano\Desenvolvimento\ADIndaiatuba\DesktopApp\obj\Debug\DesktopApp.csproj.G
 D:\Juliano\Desenvolvimento\ADIndaiatuba\DesktopApp\obj\Debug\DesktopApp.csproj.CoreCompileInputs.cache
 D:\Juliano\Desenvolvimento\ADIndaiatuba\DesktopApp\obj\Debug\DesktopApp.exe
 D:\Juliano\Desenvolvimento\ADIndaiatuba\DesktopApp\obj\Debug\DesktopApp.pdb
-D:\Juliano\Desenvolvimento\ADIndaiatuba\DesktopApp\obj\Debug\DesktopApp.BaseForm.resources
 D:\Juliano\Desenvolvimento\ADIndaiatuba\DesktopApp\obj\Debug\DesktopApp.FormPrincipal.resources
 D:\Juliano\Desenvolvimento\ADIndaiatuba\DesktopApp\bin\Debug\Business.dll
 D:\Juliano\Desenvolvimento\ADIndaiatuba\DesktopApp\bin\Debug\DataAccess.dll
@@ -17,3 +16,5 @@ D:\Juliano\Desenvolvimento\ADIndaiatuba\DesktopApp\bin\Debug\DataAccess.pdb
 D:\Juliano\Desenvolvimento\ADIndaiatuba\DesktopApp\bin\Debug\DataAccess.dll.config
 D:\Juliano\Desenvolvimento\ADIndaiatuba\DesktopApp\bin\Debug\EntityFramework.xml
 D:\Juliano\Desenvolvimento\ADIndaiatuba\DesktopApp\obj\Debug\DesktopApp.csproj.CopyComplete
+D:\Juliano\Desenvolvimento\ADIndaiatuba\DesktopApp\obj\Debug\DesktopApp.FormPesquisaCongregacao.resources
+D:\Juliano\Desenvolvimento\ADIndaiatuba\DesktopApp\obj\Debug\DesktopApp.FormEdicaoCongregacao.resources

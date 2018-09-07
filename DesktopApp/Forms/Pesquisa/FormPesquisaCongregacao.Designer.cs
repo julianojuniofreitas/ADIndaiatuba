@@ -1,6 +1,6 @@
 ﻿namespace DesktopApp
 {
-    partial class BaseForm
+    partial class FormPesquisaCongregacao
     {
         /// <summary>
         /// Variável de designer necessária.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BaseForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPesquisaCongregacao));
             this.tcPrincipal = new System.Windows.Forms.TabControl();
             this.tpPesquisa = new System.Windows.Forms.TabPage();
             this.dgvPesquisa = new System.Windows.Forms.DataGridView();

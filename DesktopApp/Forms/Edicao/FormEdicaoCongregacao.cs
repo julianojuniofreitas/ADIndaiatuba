@@ -10,16 +10,8 @@ using System.Windows.Forms;
 
 namespace DesktopApp
 {
-    public partial class BaseForm : Form
+    public partial class FormEdicaoCongregacao : Form
     {
-
-        private string TituloForm { get; set; }
-
-        public BaseForm()
-        {
-            InitializeComponent();
-            TituloForm = this.Text;
-        }
 
     }
 }

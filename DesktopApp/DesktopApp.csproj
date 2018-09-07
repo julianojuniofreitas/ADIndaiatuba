@@ -45,30 +45,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseForm.cs">
+    <Compile Include="Forms\Pesquisa\FormPesquisaCongregacao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BaseForm.Designer.cs">
-      <DependentUpon>BaseForm.cs</DependentUpon>
+    <Compile Include="Forms\Pesquisa\FormPesquisaCongregacao.Designer.cs">
+      <DependentUpon>FormPesquisaCongregacao.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormCongregacao.cs">
+    <Compile Include="Forms\Edicao\FormEdicaoCongregacao.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCongregacao.Designer.cs">
-      <DependentUpon>FormCongregacao.cs</DependentUpon>
+    <Compile Include="Forms\Edicao\FormEdicaoCongregacao.Designer.cs">
+      <DependentUpon>FormEdicaoCongregacao.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPrincipal.cs">
+    <Compile Include="Forms\FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPrincipal.Designer.cs">
+    <Compile Include="Forms\FormPrincipal.Designer.cs">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="BaseForm.resx">
-      <DependentUpon>BaseForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Pesquisa\FormPesquisaCongregacao.resx">
+      <DependentUpon>FormPesquisaCongregacao.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPrincipal.resx">
+    <EmbeddedResource Include="Forms\Edicao\FormEdicaoCongregacao.resx">
+      <DependentUpon>FormEdicaoCongregacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormPrincipal.resx">
       <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
